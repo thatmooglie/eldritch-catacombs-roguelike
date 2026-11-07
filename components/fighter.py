@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 import colour
-from components.base_components import BaseComponent
+from components.base_component import BaseComponent
 from render_order import RenderOrder
 
 if TYPE_CHECKING:
@@ -44,6 +44,8 @@ class Fighter(BaseComponent):
         self.parent.render_order = RenderOrder.CORPSE
 
         self.engine.message_log.add_message(death_message, death_message_colour)
+
+        self.engine.player.level.add_xp(self.parent.level.xp_given)
 
     def heal(self, amount: int) -> int:
         if self.hp == self.max_hp:

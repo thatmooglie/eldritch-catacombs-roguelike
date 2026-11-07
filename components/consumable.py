@@ -6,7 +6,7 @@ import actions
 import colour
 import components.ai
 import components.inventory
-from components.base_components import BaseComponent
+from components.base_component import BaseComponent
 from exceptions import Impossible
 from input_handlers import (
     ActionOrHandler,
