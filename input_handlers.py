@@ -379,7 +379,14 @@ class InventoryEventHandler(AskUserEventHandler):
         if number_of_items_in_inventory > 0:
             for i, item in enumerate(self.engine.player.inventory.items):
                 item_key = chr(ord("a") + i)
-                console.print(x + 1, y + i + 1, f"({item_key} {item.name})")
+
+                is_equipped = self.engine.player.equipment.item_is_equipped(item)
+
+                item_string = f"{item_key} {item.name}"
+
+                if is_equipped:
+                    item_string = f"{item_string} (E)"
+                console.print(x + 1, y + i + 1, item_string)
         else:
             console.print(x + 1, y + 1, "(EMPTY)")
 
@@ -415,7 +422,13 @@ class InventoryActivateHandler(InventoryEventHandler):
         """
         Return the action for the selected item.
         """
-        return item.consumable.get_action(self.engine.player)
+        if item.consumable:
+            # Return the action for the selected item
+            return item.consumable.get_action(self.engine.player)
+        elif item.equippable:
+            return actions.EquipAction(self.engine.player, item)
+        else:
+            return None
 
 
 class InventoryDropHandler(InventoryEventHandler):
@@ -487,9 +500,13 @@ class SelectIndexHandler(AskUserEventHandler):
         """
         Left click confirms a selection
         """
-        if self.engine.game_map.in_bounds(int(event.position.x // 10), int(event.position.y // 10)):
+        if self.engine.game_map.in_bounds(
+            int(event.position.x // 10), 
+            int(event.position.y // 10)):
             if event.button == 1:
-                return self.on_index_selected(int(event.position.x // 10), int(event.position.y // 10))
+                return self.on_index_selected(
+                    int(event.position.x // 10), 
+                    int(event.position.y // 10))
         return super().ev_mousebuttondown(event)
 
     def on_index_selected(self, x: int, y:int) -> Optional[ActionOrHandler]:
