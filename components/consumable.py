@@ -14,8 +14,7 @@ from input_handlers import (
     SingleRangedAttackHandler
 )
 
-if TYPE_CHECKING:
-    from entity import Actor, Item
+from entity import Actor, Item
 
 
 class Consumable(BaseComponent[Item]):
