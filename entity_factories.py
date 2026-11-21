@@ -18,20 +18,32 @@ player = Actor(
 )
 
 
-orc = Actor(
-    char="o",
-    colour=(63,127,63),
-    name="Orc",
+cultist = Actor(
+    char="c",
+    colour=(153, 51, 51),
+    name="Cultist",
     ai_cls=HostileEnemy,
     equipment=Equipment(),
     fighter=Fighter(hp=10, base_defence=0, base_power=3),
     inventory=Inventory(capacity=0),
     level=Level(xp_given=35),
 )
-troll = Actor(
-    char="T",
-    colour=(0, 127, 0),
-    name="Troll",
+
+ghoul = Actor(
+    char='g',
+    colour=(170, 170, 96),
+    name="Ghoul",
+    ai_cls=HostileEnemy,
+    equipment=Equipment(),
+    fighter=Fighter(hp=13, base_defence=3, base_power=4),
+    inventory=Inventory(capacity=0),
+    level=Level(xp_given=60),
+)
+
+shoggoth = Actor(
+    char="S",
+    colour=(60, 0, 90),
+    name="Shoggoth",
     ai_cls=HostileEnemy,
     equipment=Equipment(),
     fighter=Fighter(hp=16, base_defence=1, base_power=4),
@@ -39,67 +51,67 @@ troll = Actor(
     level=Level(xp_given=100)
 )
 
-confusion_scroll = Item(
+whispering_stone = Item(
     char="~",
     colour=(207, 63, 255),
-    name="Confusion Scroll",
+    name="Whispering Stone",
     consumable=consumable.ConfusionConsumable(
         number_of_turns=10),
 )
 
-fireball_scroll = Item(
+invocation_of_the_burning_void= Item(
     char="~",
     colour=(255, 0, 0),
-    name="Fireball Scroll",
+    name="Invocation of the Burning Void",
     consumable=consumable.FireballDamageConsumable(
         damage=12, radius=3),
 )
 
-health_potion = Item(
+elixir_of_life = Item(
     char="!",
     colour=(127, 0, 255),
-    name="Health Potion",
+    name="Elixir of Life",
     consumable=consumable.HealingConsumable(
         amount=4),
 )
 
 
-lightning_scroll = Item(
+flash_of_ra = Item(
     char="~",
     colour=(255, 255, 0),
-    name="Lightning Scroll",
+    name="Flash of Ra",
     consumable=consumable.LightningDamageConsumable(
         damage=20, maximum_range=5),
 )
 
 
-dagger = Item(
+knife = Item(
     char="/",
     colour=(0, 191, 255), 
-    name="Dagger", 
+    name="Knife", 
     equippable=equippable.Dagger()
 )
 
 
-sword = Item(
+axe = Item(
     char="/", 
     colour=(0, 191, 255), 
-    name="Sword", 
+    name="Axe", 
     equippable=equippable.Sword()
 )
 
 
-leather_armour = Item(
+leather_jacket = Item(
     char="[",
     colour=(139, 69, 19),
-    name="Leather Armour",
+    name="Leather Jacket",
     equippable=equippable.LeatherArmour()
 )
 
 
-chain_mail = Item(
+shoggoth_hide = Item(
     char="[",
     colour=(139, 69, 19),
-    name="Chain Mail",
+    name="Shoggoth Hide",
     equippable=equippable.ChainMail()
 )

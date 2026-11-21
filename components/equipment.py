@@ -15,7 +15,7 @@ class Equipment(BaseComponent[Actor]):
         self.armour = armour
 
     @property
-    def defense_bonus(self) -> int:
+    def defence_bonus(self) -> int:
         bonus = 0
 
         if self.weapon and self.weapon.equippable:

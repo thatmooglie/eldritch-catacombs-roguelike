@@ -54,8 +54,8 @@ def new_game() -> Engine:
         "Hello and welcome, adventurer, to the catacombs!", colour.welcome_text
     )
 
-    dagger = copy.deepcopy(entity_factories.dagger)
-    leather_armour = copy.deepcopy(entity_factories.leather_armour)
+    dagger = copy.deepcopy(entity_factories.knife)
+    leather_armour = copy.deepcopy(entity_factories.leather_jacket)
 
     dagger.parent = player.inventory
     leather_armour.parent = player.inventory
