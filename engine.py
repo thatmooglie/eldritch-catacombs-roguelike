@@ -21,7 +21,7 @@ class Engine:
 
     def __init__(self, player: Actor):
         self.message_log = MessageLog()
-        self.mouse_location = (0, 0)
+        self.mouse_location: tuple[int, int] = (0, 0)
         self.player = player
 
     def handle_enemy_turns(self) -> None:

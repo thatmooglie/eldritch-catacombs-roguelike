@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     from entity import Actor, Item
 
 
-class Consumable(BaseComponent):
+class Consumable(BaseComponent[Item]):
     parent: Item
 
     def get_action(self, consumer: Actor) -> Optional[ActionOrHandler]:

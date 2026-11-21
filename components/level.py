@@ -8,7 +8,7 @@ if TYPE_CHECKING:
     from entity import Actor
 
 
-class Level(BaseComponent):
+class Level(BaseComponent[Actor]):
     parent: Actor
 
     def __init__(
@@ -39,7 +39,7 @@ class Level(BaseComponent):
 
         self.current_xp += xp
 
-        self.engine.message_log.add_message(f"Youy gain {xp} experience points.")
+        self.engine.message_log.add_message(f"You gain {xp} experience points.")
 
         if self.requires_level_up:
             self.engine.message_log.add_message(

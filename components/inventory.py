@@ -8,7 +8,7 @@ if TYPE_CHECKING:
     from entity import Actor, Item
 
 
-class Inventory(BaseComponent):
+class Inventory(BaseComponent[Actor]):
     parent: Actor
 
     def __init__(self, capacity: int):

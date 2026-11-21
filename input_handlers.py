@@ -481,13 +481,15 @@ class SelectIndexHandler(AskUserEventHandler):
             return self.on_index_selected(*self.engine.mouse_location)
         return super().ev_keydown(event)
 
-    def ev_mousebuttondown(self, event: tcod.event.MouseButtonDown) -> Optional[ActionOrHandler]:
+    def ev_mousebuttondown(
+            self, event: tcod.event.MouseButtonDown
+            ) -> Optional[ActionOrHandler]:
         """
         Left click confirms a selection
         """
-        if self.engine.game_map.in_bounds(*event.tile):
+        if self.engine.game_map.in_bounds(int(event.position.x // 10), int(event.position.y // 10)):
             if event.button == 1:
-                return self.on_index_selected(*event.tile)
+                return self.on_index_selected(int(event.position.x // 10), int(event.position.y // 10))
         return super().ev_mousebuttondown(event)
 
     def on_index_selected(self, x: int, y:int) -> Optional[ActionOrHandler]:
@@ -503,7 +505,7 @@ class LookHandler(SelectIndexHandler):
     """
 
     def on_index_selected(self, x: int, y: int) -> MainGameEventHandler:
-        return MainGameEventHandler
+        return MainGameEventHandler(self.engine)
 
 
 class SingleRangedAttackHandler(SelectIndexHandler):

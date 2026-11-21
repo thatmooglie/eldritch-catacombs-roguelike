@@ -9,7 +9,7 @@ from render_order import RenderOrder
 if TYPE_CHECKING:
     from entity import Actor
 
-class Fighter(BaseComponent):
+class Fighter(BaseComponent[Actor]):
     parent: Actor
 
     def __init__(self, hp: int, defence: int, power: int):

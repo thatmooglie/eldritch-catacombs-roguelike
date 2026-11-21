@@ -8,8 +8,8 @@ from render_order import RenderOrder
 
 if TYPE_CHECKING:
     from components.ai import BaseAI
-    from conponents.consumable import Consumable
-    from components.figher import Fighter
+    from components.consumable import Consumable
+    from components.fighter import Fighter
     from components.inventory import Inventory
     from components.level import Level
     from game_map import GameMap
