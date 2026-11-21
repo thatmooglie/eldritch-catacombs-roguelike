@@ -80,14 +80,14 @@ class MainMenu(input_handlers.BaseEventHandler):
             console.height // 2 - 4,
             "ELDRITCH CATACOMBS",
             fg=colour.menu_title,
-            alignment=tcod.CENTER,
+            alignment=tcod.libtcodpy.CENTER,
         )
         console.print(
             console.width // 2,
             console.height - 2,
             "By moog",
             fg=colour.menu_title,
-            alignment=tcod.CENTER
+            alignment=tcod.libtcodpy.CENTER
         )
 
         menu_width = 24
@@ -100,8 +100,8 @@ class MainMenu(input_handlers.BaseEventHandler):
                 text.ljust(menu_width),
                 fg=colour.menu_text,
                 bg=colour.black,
-                alignment=tcod.CENTER,
-                bg_blend=tcod.BKGND_ALPHA(64),
+                alignment=tcod.libtcodpy.CENTER,
+                bg_blend=tcod.libtcodpy.BKGND_ALPHA(64),
             )
 
     def ev_keydown(
