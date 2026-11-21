@@ -20,7 +20,7 @@ T = TypeVar("T", bound="Entity")
 
 class Entity:
     """
-    A generic object tp represent players, enemies, items, etc.
+    A generic object to represent players, enemies, items, etc.
     """
 
     parent: Union[GameMap, Inventory]

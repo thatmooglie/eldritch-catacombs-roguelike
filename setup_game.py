@@ -25,7 +25,7 @@ background_image = tcod.image.load("menu_background.png")[:, :, :3]
 
 def new_game() -> Engine:
     """
-    Return a band new game session as an Engine instance.
+    Return a brand new game session as an Engine instance.
     """
     map_width = 80
     map_height = 43
@@ -70,7 +70,7 @@ def new_game() -> Engine:
 
 def load_game(filename: str) -> Engine:
     """
-    Load an Engine instance froma file.
+    Load an Engine instance from a file.
     """
     with open(filename, "rb") as f:
         engine = pickle.loads(lzma.decompress(f.read()))

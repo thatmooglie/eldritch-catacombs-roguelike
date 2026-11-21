@@ -24,7 +24,7 @@ class Action:
         return self.entity.gamemap.engine
     
     def perform(self) -> None:
-        """Perform this acton with the objects needed to determine its scope.
+        """Perform this action with the objects needed to determine its scope.
         
         'self.engine' is the scope of the action being performed in.
         
@@ -37,7 +37,7 @@ class Action:
 
 class PickupAction(Action):
     """
-    Pickup and item and add it to the inventory, if there is room for it.
+    Pickup an item and add it to the inventory, if there is room for it.
     """
 
     def __init__(self, entity: Actor):
@@ -91,7 +91,7 @@ class DropItem(ItemAction):
     def perform(self) -> None:
         if self.entity.equipment.item_is_equipped(self.item):
             self.entity.equipment.toggle_equip(self.item)
-            
+
         self.entity.inventory.drop(self.item)
 
 
@@ -191,7 +191,7 @@ class MovementAction(ActionWithDirection):
             # Destination out of bounds
             raise exceptions.Impossible("That way is blocked.")
         if not self.engine.game_map.tiles["walkable"][dest_x, dest_y]:
-            # Destinaton is blocked by a tile
+            # Destination is blocked by a tile
             raise exceptions.Impossible("That way is blocked.")
         if self.engine.game_map.get_blocking_entity_at_location(dest_x, dest_y):
             # Destination is blocked by an entity

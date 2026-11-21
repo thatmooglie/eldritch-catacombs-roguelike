@@ -45,7 +45,7 @@ class MessageLog:
     ) -> None:
         """
         Render this log over the given area.
-        'x', 'y', 'widht', 'height' is the rectangular region to render onto
+        'x', 'y', 'width', 'height' is the rectangular region to render onto
         the 'console'
         """
         self.render_messages(console, x, y, width, height, self.messages)
@@ -72,7 +72,7 @@ class MessageLog:
     ) -> None:
         """
         Render the messages provided.
-        The 'messages' are rendered startign at the last message and working 
+        The 'messages' are rendered starting at the last message and working 
         backwards.
         """
         y_offset = height - 1

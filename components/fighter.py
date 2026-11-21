@@ -36,7 +36,7 @@ class Fighter(BaseComponent[Actor]):
     @property
     def defence_bonus(self) -> int:
         if self.parent.equipment:
-            return self.parent.equipment.defense_bonus
+            return self.parent.equipment.defence_bonus
         else:
             return 0
 

@@ -66,7 +66,7 @@ CONFIRM_KEYS = {
 
 ActionOrHandler = Union[Action, "BaseEventHandler"]
 """
-An event handler return value can trigger an action or swith active handlers.
+An event handler return value can trigger an action or switch active handlers.
 
 If a handler is returned then it will become the active handler.
 If an action is returned it will be attempted and if it's valid then
@@ -335,7 +335,7 @@ class LevelUpEventHandler(AskUserEventHandler):
 
 class InventoryEventHandler(AskUserEventHandler):
     """
-    This handler lets the user select and item.
+    This handler lets the user select an item.
 
     What happens then depends on the subclass.
     """
@@ -416,7 +416,7 @@ class InventoryActivateHandler(InventoryEventHandler):
     Handle using an inventory item.
     """
 
-    TITLE = "Select and item to use"
+    TITLE = "Select an item to use"
 
     def on_item_selected(self, item: Item) -> Optional[ActionOrHandler]:
         """
@@ -433,10 +433,10 @@ class InventoryActivateHandler(InventoryEventHandler):
 
 class InventoryDropHandler(InventoryEventHandler):
     """
-    Handle dropping and inventory item.
+    Handle dropping an inventory item.
     """
 
-    TITLE = "Select and item to drop"
+    TITLE = "Select an item to drop"
 
     def on_item_selected(self, item: Item) -> Optional[ActionOrHandler]:
         """
@@ -527,7 +527,7 @@ class LookHandler(SelectIndexHandler):
 
 class SingleRangedAttackHandler(SelectIndexHandler):
     """
-    Handles targeting a single enemey. Only the enemy selected will be affected.
+    Handles targeting a single enemy. Only the enemy selected will be affected.
     """
 
     def __init__(
@@ -543,7 +543,7 @@ class SingleRangedAttackHandler(SelectIndexHandler):
 
 class AreaRangedAttackHandler(SelectIndexHandler):
     """
-    Handles targeting an area within a given radius. Any entity with the area will be affected.
+    Handles targeting an area within a given radius. Any entity within the area will be affected.
     """
 
     def __init__(
@@ -565,7 +565,7 @@ class AreaRangedAttackHandler(SelectIndexHandler):
 
         x, y = self.engine.mouse_location
 
-        # Draw a rectangle around the target area, sothe player can see the affected tiles.
+        # Draw a rectangle around the target area, so the player can see the affected tiles.
         console.draw_frame(
             x=x - self.radius - 1,
             y=y - self.radius - 1,
@@ -623,7 +623,7 @@ class GameOverEventHandler(EventHandler):
         Handle exiting out of a finished game.
         """
         if os.path.exists("savegame.sav"):
-            os.remove("savegame.sav")   # Delketes the active save file
+            os.remove("savegame.sav")   # Deletes the active save file
         raise exceptions.QuitWithoutSaving()    # Avoids saving a finished game.
 
     def ev_quit(self, event: tcod.event.Quit) -> None:
@@ -690,6 +690,6 @@ class HistoryViewer(EventHandler):
             self.cursor = 0 # Move directly to top message.
         elif event.sym == tcod.event.KeySym.END:
             self.cursor = self.log_length - 1   # Move directly to last message.
-        else:   # Any oither key moves back to the main game state.
+        else:   # Any other key moves back to the main game state.
             return MainGameEventHandler(self.engine)
         return None

@@ -1,6 +1,6 @@
 from __future__ import annotations 
 
-from typing import Optional, TYPE_CHECKING
+from typing import Optional
 
 import actions
 import colour
@@ -69,7 +69,7 @@ class ConfusionConsumable(Consumable):
             raise Impossible("You cannot confuse yourself!")
 
         self.engine.message_log.add_message(
-            f"The eyes of the {target.name} look vacant, as it starts to stubmle around!",
+            f"The eyes of the {target.name} look vacant, as it starts to stumble around!",
             colour.status_effect_applied,
         )
         target.ai = components.ai.ConfusedEnemy(
@@ -116,7 +116,7 @@ class LightningDamageConsumable(Consumable):
 
         if target:
             self.engine.message_log.add_message(
-                f"A lightning bolt strikes the {target.name} with a loud thundert, for {self.damage} damage!"
+                f"A lightning bolt strikes the {target.name} with a loud thunder, for {self.damage} damage!"
             )
             target.fighter.take_damage(self.damage)
             self.consume()

@@ -76,7 +76,7 @@ class HostileEnemy(BaseAI):
 
 class ConfusedEnemy(BaseAI):
     """
-    A confused enemy will stumble around aimlessy for a given number of turns, then revert back to its previous AI.
+    A confused enemy will stumble around aimlessly for a given number of turns, then revert back to its previous AI.
     If an actor occupies a tile it is randomly moving into, it will attack.
     """
 
@@ -99,7 +99,7 @@ class ConfusedEnemy(BaseAI):
             # Pick a random direction
             direction_x, direction_y = random.choice(
                 [
-                    (-1, 1),    # Northwest
+                    (-1, -1),    # Northwest
                     (0, -1),    # North
                     (1, -1),    # Northeast
                     (-1, 0),    # West
@@ -113,5 +113,5 @@ class ConfusedEnemy(BaseAI):
             self.turns_remaining -= 1
 
             # The actor will either try to move or attack in the chosen random direction.
-            # Its possible the actor will bump into the wall, wasting a turn.
+            # It's possible the actor will bump into the wall, wasting a turn.
             return BumpAction(self.entity, direction_x, direction_y).perform()
