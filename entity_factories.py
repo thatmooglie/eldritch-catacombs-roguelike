@@ -24,7 +24,7 @@ cultist = Actor(
     name="Cultist",
     ai_cls=HostileEnemy,
     equipment=Equipment(),
-    fighter=Fighter(hp=10, base_defence=0, base_power=3),
+    fighter=Fighter(hp=10, base_defence=0, base_power=4),
     inventory=Inventory(capacity=0),
     level=Level(xp_given=35),
 )
@@ -35,7 +35,7 @@ ghoul = Actor(
     name="Ghoul",
     ai_cls=HostileEnemy,
     equipment=Equipment(),
-    fighter=Fighter(hp=13, base_defence=3, base_power=4),
+    fighter=Fighter(hp=13, base_defence=1, base_power=6),
     inventory=Inventory(capacity=0),
     level=Level(xp_given=60),
 )
@@ -46,7 +46,7 @@ shoggoth = Actor(
     name="Shoggoth",
     ai_cls=HostileEnemy,
     equipment=Equipment(),
-    fighter=Fighter(hp=16, base_defence=1, base_power=4),
+    fighter=Fighter(hp=16, base_defence=3, base_power=8),
     inventory=Inventory(capacity=0),
     level=Level(xp_given=100)
 )
